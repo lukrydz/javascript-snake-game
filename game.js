@@ -2,14 +2,19 @@ import { Snake, Python, Anakonda, Cobra } from './snake.js'
 import { Food, Syntax_Bug, Strange_Bug, Pokemon } from './food.js'
 import { outsideGrid } from './grid.js';
 import { Settings } from './settings.js';
+import { Player } from './player.js';
 
 
 let lastRenderTime = 0
 let gameOver = false
 const gameBoard = document.getElementById('gameboard')
+const player = new Player();
 const settings = new Settings();
 const snake = new Snake(settings);
 const food = new Food(settings, snake);
+
+
+player.update_player_data("name")
 
 
 function initGame(currentTime)
