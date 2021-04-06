@@ -1,31 +1,75 @@
-import { onSnake, expandSnake } from './snake.js'
 import { randomGridPosition } from './grid.js'
 
-let food = getRandomFoodPosition();
-const SNAKE_ELEMENTS_TO_ADD = 1;
 
-export function update() {
-    if (onSnake(food)) {
-        expandSnake(SNAKE_ELEMENTS_TO_ADD)
-        food = getRandomFoodPosition()
+export class Food
+{
+    constructor(settings, snake)
+    {
+        this.position = this.getRandomFoodPosition(snake);
+        this.SNAKE_ELEMENTS_TO_ADD = settings.SNAKE_ELEMENTS_TO_ADD;
     }
+
+
+    update(snake)
+    {
+        if (snake.onSnake(this.position))
+        {
+            snake.expandSnake(this.SNAKE_ELEMENTS_TO_ADD)
+            this.position = this.getRandomFoodPosition(snake)
+        }
+    }
+
+
+    draw(gameBoard)
+    {
+        const foodElement = document.createElement('div')
+        foodElement.style.gridRowStart = this.position.y
+        foodElement.style.gridColumnStart = this.position.x
+        foodElement.classList.add('food')
+        gameBoard.appendChild(foodElement)
+    }
+
+
+    getRandomFoodPosition(snake)
+    {
+        let newFoodPosition
+        while (newFoodPosition == null || snake.onSnake(newFoodPosition))
+        {
+            newFoodPosition = randomGridPosition()
+        }
+        return newFoodPosition
+    }
+
+
 }
 
 
-export function draw(gameBoard) {
+export class Syntax_Bug extends Food
+{
+    constructor(settings, snake, name)
+    {
+        super(name);
+        this.name = name;
+    }
 
-    const foodElement = document.createElement('div')
-    foodElement.style.gridRowStart = food.y
-    foodElement.style.gridColumnStart = food.x
-    foodElement.classList.add('food')
-    gameBoard.appendChild(foodElement)
 }
 
-
-function getRandomFoodPosition() {
-    let newFoodPosition
-    while (newFoodPosition == null || onSnake(newFoodPosition)) {
-        newFoodPosition = randomGridPosition()
+export class Strange_Bug extends Food
+{
+    constructor(settings, snake, name)
+    {
+        super(name);
+        this.name = name;
     }
-    return newFoodPosition
+
+}
+
+export class Pokemon extends Food
+{
+    constructor(settings, snake, name)
+    {
+        super(name);
+        this.name = name;
+    }
+
 }
