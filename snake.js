@@ -1,10 +1,10 @@
 import { getDirection } from "./keyboardinput.js"
 
 // moves per second:
-export const SNAKESPEED = 2
+export var SNAKESPEED = 2
 // array of x, y positions
 const snakeBody = [
-    { x: 10, y: 11 }
+    { x: 8, y: 8 }
 ]
 
 let newSnakeSegments = 0

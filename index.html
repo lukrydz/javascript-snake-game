@@ -4,13 +4,101 @@
     <title>Javascript Game</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <meta http-equiv="Page-Exit", content="revealTrans(Duration=2,Transition=3)">
     <!-- http://proger.i-forge.net/The_smallest_transparent_pixel/ -->
     <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-transition.css">
     <!-- defer makes script load after html -->
     <script src="game.js" defer type="module"></script>
 </head>
 <body>
-    <div id="gameboard"></div>
+
+    
+    <div id="container">
+        <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
+        <div id="mainmenu"><b>Main menu</b></div>
+    
+        <div id="kafelki1" style="margin-top: 100px;">
+            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('levelofdifficulty').id ='levelofdifficulty2'; 
+            document.getElementById('container').id = 'container2'">Play the game</div></div>
+
+        <div id="kafelki2">
+            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('credits').id ='credits2'; 
+            document.getElementById('container').id = 'container2'"<div class="choice">Credits</div></div>
+    
+        <div id="kafelki3">
+            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('halloffame').id ='halloffame2'; 
+            document.getElementById('container').id = 'container2'"<div id="choice">Hall of fame</div></div>
+    
+        <div id="kafelki4">
+            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('options').id ='options2';
+            document.getElementById('container').id = 'container2'"<div id="choice">Options</div></div>
+
+        <div id="footer" style="font-size: 15px;">copyright © All rights reserved</div></div>
+    
+    <div id="levelofdifficulty">
+        <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
+        <div style="font-size: 40px; color: #00154F; width: 600px; margin-left: auto; margin-right: auto; text-align:center; margin-top: 100px;">
+            <b>Choose your level of difficulty</b></div>
+        <div id="kafelki1" style="margin-top: 100px">
+            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('gameboard').id ='gameboard2';
+            document.getElementById('levelofdifficulty2').id = 'levelofdifficulty'; document.getElementById('containergameboard').id = 'containergameboard2'"
+            >Easy</div></div>
+        <div id="kafelki2" style="margin-top: 25px">
+            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('gameboard').id ='gameboard2';
+            document.getElementById('levelofdifficulty2').id = 'levelofdifficulty'; document.getElementById('containergameboard').id = 'containergameboard2'"
+            >Hard</div></div>
+        <div id="kafelki3" style="margin-top: 100px">
+            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('container2').id ='container';
+            document.getElementById('levelofdifficulty2').id = 'levelofdifficulty'"
+            >Back to main menu byku</div></div>
+            <div id="footer" style="font-size: 15px">copyright © All rights reserved</div>
+    </div>
+
+    <div id="credits">
+        <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
+        <div style="font-size: 40px; color: #00154F; width: 245px; margin-left: auto; margin-right: auto; text-align:center; margin-top: 100px;"><b>Credits</b></div>
+        <div id="kafelki1" ><div id="choice">Adas</div></div>
+        <div id="kafelki2" ><div id="choice">Lukaszek</div></div>
+        <div id="kafelki3" ><div id="choice">Beniaminek</div></div>
+        <div id="kafelki4" style="margin-top: 100px">
+            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('container2').id ='container';
+            document.getElementById('credits2').id = 'credits'"
+            >Back to main menu byku</div></div>
+            <div id="footer" style="font-size: 15px">copyright © All rights reserved</div>
+    </div>
+
+    <div id="halloffame">
+        <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
+        <div style="font-size: 40px; color: #00154F; width: 245px; margin-left: auto; margin-right: auto; text-align:center; margin-top: 100px;"><b>Hall of fame</b></div>
+        <div id="kafelki1" ><div id="choice">1.the best</div></div>
+        <div id="kafelki2" ><div id="choice">2.good</div></div>
+        <div id="kafelki3" ><div id="choice">3.worst</div></div>
+        <div id="kafelki4" style="margin-top: 100px">
+            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('container2').id ='container';
+            document.getElementById('halloffame2').id = 'halloffame'"
+            >Back to main menu byku</div></div>
+            <div id="footer" style="font-size: 15px">copyright © All rights reserved</div></div>
+    
+    <div id="options">
+        <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
+        <div style="font-size: 40px; color: #00154F; width: 245px; margin-left: auto; margin-right: auto; text-align:center; margin-top: 100px;"><b>Options</b></div>
+        <div id="kafelki1"><div id="choice">In progress</div></div>
+        <div id="kafelki2" style="margin-top: 100px">
+            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('container2').id ='container';
+            document.getElementById('options2').id = 'options'"
+            >Back to main menu byku</div></div>
+            <div id="footer" style="font-size: 15px">copyright © All rights reserved</div></div>
+    
+    <div id="containergameboard">   
+        <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
+        <div id="gameboard"></div>
+        <div id="statusbar">
+            <div id=score>Score:</div>
+            <div id=musiconof>Music ON/OFF</div>
+        </div>
+        <div id="footer" style="font-size: 15px">copyright © All rights reserved</div></div>
+
 </body>
 </html>
