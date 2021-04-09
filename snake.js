@@ -1,5 +1,6 @@
 import { getDirection } from "./keyboardinput.js"
 
+export let roundScore = 0;
 
 export class Snake 
 {
@@ -82,6 +83,7 @@ export class Snake
             // adds new element at the end of snake
             this.snakeBody.push({ ...this.snakeBody[this.snakeBodylength - 1]})
         }
+        roundScore = roundScore + this.newSnakeSegments
         this.newSnakeSegments = 0
     }
 
