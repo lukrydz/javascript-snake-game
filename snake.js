@@ -11,6 +11,8 @@ export class Snake
         this.newSnakeSegments = 0
         this.SnakeHead = this.snakeBody[0]
         this.SNAKE_ELEMENTS_TO_ADD = settings.SNAKE_ELEMENTS_TO_ADD
+        this.image = ''
+        this.SNAKESPEED = 1
     }
 
 
@@ -41,7 +43,7 @@ export class Snake
             const snakeElement = document.createElement('div')
             snakeElement.style.gridRowStart = segment.y
             snakeElement.style.gridColumnStart = segment.x
-            snakeElement.classList.add('snake')
+            snakeElement.classList.add(this.image)
             gameBoard.appendChild(snakeElement)
         })
     }
@@ -98,18 +100,22 @@ export class Python extends Snake
         super(name);
         this.type = "Python"
         this.name = name;
+        this.image = "python"
+        this.SNAKESPEED = 2
     }
 
 }
 
 
-export class Anakonda extends Snake
+export class Viper extends Snake
 {
     constructor(settings, name)
     {
         super(name);
-        this.type = "Anakonda"
+        this.type = "Viper"
         this.name = name;
+        this.image = "viper"
+        this.SNAKESPEED = 6
     }
 
 }
@@ -122,6 +128,8 @@ export class Cobra extends Snake
         super(name);
         this.type = "Cobra"
         this.name = name;
+        this.image = "cobra"
+        this.SNAKESPEED = 2
     }
 
 }

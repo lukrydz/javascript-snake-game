@@ -1,4 +1,4 @@
-import { Snake, Python, Anakonda, Cobra, roundScore } from './snake.js'
+import { Snake, Python, Viper, Cobra, roundScore } from './snake.js'
 import { Food, Syntax_Bug, Strange_Bug, Pokemon } from './food.js'
 import { outsideGrid } from './grid.js';
 import { Settings } from './settings.js';
@@ -10,7 +10,7 @@ let gameOver = false
 const gameBoard = document.getElementById('gameboard')
 const player = new Player();
 const settings = new Settings();
-const snake = new Snake(settings);
+const snake = new Cobra(settings, "Tadeusz");
 const food = new Food(settings, snake);
 
 
@@ -36,7 +36,7 @@ function initGame(currentTime)
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
     
     // throttler; if update time haven't passed, don't update snake position
-    if (secondsSinceLastRender < 1 / settings.SNAKESPEED) return
+    if (secondsSinceLastRender < 1 / snake.SNAKESPEED) return
     
     lastRenderTime = currentTime
 

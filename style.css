@@ -81,6 +81,37 @@ body {
     background-size: auto;
 }
 
+
+.python {
+    background-image: url("Python_small.svg.png");
+    /* background-color: rgb(45, 16, 214);
+    border: .25vmin solid black; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+
+.viper {
+    background-image: url("Viper_small.jpg");
+    /* background-color: rgb(45, 16, 214);
+    border: .25vmin solid black; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+
+.cobra {
+    background-image: url("cobra_small.png");
+    /* background-color: rgb(45, 16, 214);
+    border: .25vmin solid black; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+
 .food {
     /* background-color: salmon;
     border: .25vmin solid black; */
