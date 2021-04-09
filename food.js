@@ -12,12 +12,17 @@ export class Food
 
     update(snake)
     {
-        if (snake.onSnake(this.position))
-        {
-            snake.expandSnake(this.SNAKE_ELEMENTS_TO_ADD)
-            this.position = this.getRandomFoodPosition(snake)
-        }
+        // if (snake.onSnake(this.position))
+        // {
+        snake.expandSnake(this.SNAKE_ELEMENTS_TO_ADD)
+        this.position = this.getRandomFoodPosition(snake)
+        // }
     }
+
+    // kill()
+    // {
+    //     document.re
+    // }
 
 
     draw(gameBoard)

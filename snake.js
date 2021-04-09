@@ -4,15 +4,16 @@ export let roundScore = 0;
 
 export class Snake 
 {
-    constructor(settings)
+    constructor(settings, name)
     {
         // array of x, y positions
         this.snakeBody = [ { x: 10, y: 11 } ]
         this.newSnakeSegments = 0
         this.SnakeHead = this.snakeBody[0]
         this.SNAKE_ELEMENTS_TO_ADD = settings.SNAKE_ELEMENTS_TO_ADD
-        this.image = ''
+        this.image = 'snake'
         this.SNAKESPEED = 1
+        this.name = name;
     }
 
 
@@ -97,9 +98,8 @@ export class Python extends Snake
 {
     constructor(settings, name)
     {
-        super(name);
+        super(settings, name);
         this.type = "Python"
-        this.name = name;
         this.image = "python"
         this.SNAKESPEED = 2
     }
@@ -110,10 +110,9 @@ export class Python extends Snake
 export class Viper extends Snake
 {
     constructor(settings, name)
-    {
-        super(name);
+    {   
+        super(settings, name);
         this.type = "Viper"
-        this.name = name;
         this.image = "viper"
         this.SNAKESPEED = 6
     }
@@ -124,10 +123,9 @@ export class Viper extends Snake
 export class Cobra extends Snake
 {
     constructor(settings, name)
-    {
-        super(name);
+    {   
+        super(settings, name);
         this.type = "Cobra"
-        this.name = name;
         this.image = "cobra"
         this.SNAKESPEED = 2
     }

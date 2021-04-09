@@ -53,7 +53,12 @@ function update()
     
     // updateSnake()
     checkDeath()
-    food.update(snake)
+    if (snake.onSnake(food.position))
+    {   
+
+        // const food = new Food(settings, snake);
+        food.update(snake)
+    }
 }
 
 function draw()
