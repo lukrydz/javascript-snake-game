@@ -1,18 +1,18 @@
-import { getDirection } from "./keyboardinput.js"
+import { getDirection, specialSkill } from "./keyboardinput.js"
 
 export let roundScore = 0;
 
 export class Snake 
 {
-    constructor(settings, name)
+    constructor(name)
     {
         // array of x, y positions
         this.snakeBody = [ { x: 10, y: 11 } ]
         this.newSnakeSegments = 0
         this.SnakeHead = this.snakeBody[0]
-        this.SNAKE_ELEMENTS_TO_ADD = settings.SNAKE_ELEMENTS_TO_ADD
+        this.SNAKE_ELEMENTS_TO_ADD = 1
         this.image = 'snake'
-        this.SNAKESPEED = 1
+        this.SNAKESPEED = 2
         this.name = name;
     }
 
@@ -22,6 +22,8 @@ export class Snake
         this.addSegments()
 
         const inputDirection = getDirection();
+        const skill = specialSkill();
+        console.log(skill)
 
         for (let i = this.snakeBody.length - 2; i>= 0; i--)
         {
@@ -29,8 +31,8 @@ export class Snake
             // ... makes a duplicate of a snakeBody object
         }
 
-            this.snakeBody[0].x += inputDirection.x
-            this.snakeBody[0].y += inputDirection.y
+        this.snakeBody[0].x += inputDirection.x
+        this.snakeBody[0].y += inputDirection.y
     }
 
 
@@ -38,7 +40,6 @@ export class Snake
     {
     // draws snake elements
 
-        console.log('draw')
         // "funkcja strzalkowa!"
         this.snakeBody.forEach(segment =>{
             const snakeElement = document.createElement('div')
@@ -96,39 +97,34 @@ export class Snake
 
 export class Python extends Snake
 {
-    constructor(settings, name)
+    constructor(name)
     {
-        super(settings, name);
+        super(name);
         this.type = "Python"
         this.image = "python"
-        this.SNAKESPEED = 2
         this.SNAKE_ELEMENTS_TO_ADD = 3
     }
-
 }
 
 
 export class Viper extends Snake
 {
-    constructor(settings, name)
+    constructor(name)
     {   
-        super(settings, name);
+        super(name);
         this.type = "Viper"
         this.image = "viper"
         this.SNAKESPEED = 6
     }
-
 }
 
 
 export class Cobra extends Snake
 {
-    constructor(settings, name)
+    constructor(name)
     {   
-        super(settings, name);
+        super(name);
         this.type = "Cobra"
         this.image = "cobra"
-        this.SNAKESPEED = 2
     }
-
 }

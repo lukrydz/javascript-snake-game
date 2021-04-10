@@ -1,32 +1,74 @@
 import { Snake, Python, Viper, Cobra, roundScore } from './snake.js'
 import { Food, Syntax_Bug, Strange_Bug, Pokemon } from './food.js'
 import { outsideGrid } from './grid.js';
-import { Settings } from './settings.js';
 import { Player } from './player.js';
 import { storeScore, getScores } from './cookiehiscore.js';
 
-
 let lastRenderTime = 0
 let gameOver = false
+///tutaj masz level wybrany przez gracza
+let level = ''
+let randomNumber = 1
+
 const gameBoard = document.getElementById('gameboard')
 const player = new Player();
-const settings = new Settings();
-const snake = new Python(settings, "Tadeusz");
-const food = new Food(settings, snake);
+var snake = new Snake("Tadeusz");
+var food = new Food(snake);
 
 
-player.update_player_data(prompt("Please enter your name: "))
+
+document.querySelector('#name_page > #buttons4 > #choice').addEventListener('click', getName)
+function getName() {
+    player.update_player_data(document.getElementById("name_input").value)
+      
+}
+
+document.querySelector('#levelofdifficulty > #buttons1 > #choice1').addEventListener('click', getLevelEasy)
+function getLevelEasy() {
+    level = document.getElementById("choice1").textContent
+    document.querySelector('#herotochoose2 > #getnamefromjs').innerHTML = player.name + ', please choose your hero dude'
+}
+
+document.querySelector('#levelofdifficulty > #buttons2 > #choice2').addEventListener('click', getLevelHard)
+function getLevelHard() {
+    level = document.getElementById("choice2").textContent
+    document.querySelector('#herotochoose2 > #getnamefromjs').innerHTML = player.name + ', please choose your hero dude'
+}
+
+document.querySelector('#herotochoose > #herosscreen > #cobra').addEventListener('click', getCobra)
+function getCobra() {
+    snake = new Cobra("Tadeusz");
+}
+
+document.querySelector('#herotochoose > #herosscreen > #python').addEventListener('click', getPython)
+function getPython() {
+    snake = new Python("Tadeusz");
+}
+
+document.querySelector('#herotochoose > #herosscreen > #viper').addEventListener('click', getViper)
+function getViper() {
+    snake = new Viper("Tadeusz");
+}
 
 
+
+
+
+document.querySelector('#name_page > #buttons4 > #choice').addEventListener('click', myName)
+function myName() {
+    document.querySelector('#levelofdifficulty2 > #getnamefromjs').innerHTML = player.name + ', please choose your level of difficulty bro'
+
+}
 function initGame(currentTime)
 {
     if (gameOver)
     {
         storeScore(player.name, roundScore)
+        
 
         if (confirm('You lost. Press ok to restart.'))
-        {
-
+            
+        {   
             window.location.reload(true);
         }
     }
@@ -47,6 +89,7 @@ function initGame(currentTime)
 
 window.requestAnimationFrame(initGame)
 
+
 function update()
 {
     // move snake to new coordinates
@@ -54,13 +97,20 @@ function update()
     
     // updateSnake()
     checkDeath()
-    // if (snake.onSnake(food.position))
-    // {   
-    //     snake.expandSnake()
-    //     food.kill()
-    //     food = new Food(settings, snake);
-    food.update(snake)
-    // }
+    if (snake.onSnake(food.position))
+    {   
+        food.kill()
+        snake.expandSnake()
+        randomNumber = getRandomInt(1, 3);
+        randomNumber = 3;
+        console.log(randomNumber)
+        if (randomNumber == 1)
+            food = new Syntax_Bug(snake);
+        if (randomNumber == 2)
+            food = new Strange_Bug(snake); 
+        if (randomNumber == 3)
+            food = new Pokemon(snake); 
+    }
 }
 
 function draw()
@@ -80,9 +130,10 @@ function checkDeath()
 
 function showCurrentScore(){
     document.querySelector("#score").innerHTML = `Score: ${roundScore}`
+    // document.querySelector('.snake').style.backgroundImage = 'url("snake.png")';    
 }
 
-document.querySelector('#container > #kafelki3 > #choice').addEventListener('click', hallOfFame)
+document.querySelector('#container > #buttons3 > #choice').addEventListener('click', hallOfFame)
 
 function hallOfFame(){
     let scores = getScores()
@@ -112,7 +163,19 @@ function hallOfFame(){
     }
 
  
-    document.querySelector('#halloffame2 > #kafelki1 > #choice').innerHTML = `1. ${scoreArray[0]}`
-    document.querySelector('#halloffame2 > #kafelki2 > #choice').innerHTML = `2. ${scoreArray[1]}`
-    document.querySelector('#halloffame2 > #kafelki3 > #choice').innerHTML = `3. ${scoreArray[2]}`
+    document.querySelector('#halloffame2 > #buttons1 > #choice').innerHTML = `1. ${scoreArray[0]}`
+    document.querySelector('#halloffame2 > #buttons2 > #choice').innerHTML = `2. ${scoreArray[1]}`
+    document.querySelector('#halloffame2 > #buttons3 > #choice').innerHTML = `3. ${scoreArray[2]}`
 }
+
+// document.querySelector('.snake').style.backgroundImage = 'url("jajko2.png")';
+
+
+
+
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }

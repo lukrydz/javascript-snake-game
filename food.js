@@ -3,10 +3,12 @@ import { randomGridPosition } from './grid.js'
 
 export class Food
 {
-    constructor(settings, snake)
+    constructor(snake)
     {
-        this.position = this.getRandomFoodPosition(snake);
-        this.SNAKE_ELEMENTS_TO_ADD = settings.SNAKE_ELEMENTS_TO_ADD;
+        this.position = { x: 6, y: 5 }
+        this.getRandomFoodPosition(snake);
+        this.image = 'food'
+        this.element = document.createElement('div')
     }
 
 
@@ -14,36 +16,32 @@ export class Food
     {
         if (snake.onSnake(this.position))
         {
-            snake.expandSnake(this.SNAKE_ELEMENTS_TO_ADD)
-            this.position = this.getRandomFoodPosition(snake)
+            snake.expandSnake()
+            this.getRandomFoodPosition(snake)
         }
     }
 
     kill()
     {
-        foodElement.remove()
+        this.element.remove()
     }
 
 
     draw(gameBoard)
-    {
-        const foodElement = document.createElement('div')
-        foodElement.style.gridRowStart = this.position.y
-        foodElement.style.gridColumnStart = this.position.x
-        foodElement.classList.add('food')
-        gameBoard.appendChild(foodElement)
-        
+    {   
+        this.element.style.gridRowStart = this.position.y
+        this.element.style.gridColumnStart = this.position.x
+        this.element.classList.add(this.image)
+        gameBoard.appendChild(this.element)
     }
 
 
     getRandomFoodPosition(snake)
     {
-        let newFoodPosition
-        while (newFoodPosition == null || snake.onSnake(newFoodPosition))
+        while (this.position == null || snake.onSnake(this.position))
         {
-            newFoodPosition = randomGridPosition()
+            this.position = randomGridPosition()
         }
-        return newFoodPosition
     }
 
 
@@ -52,30 +50,33 @@ export class Food
 
 export class Syntax_Bug extends Food
 {
-    constructor(settings, snake, name)
+    constructor(snake)
     {
-        super(name);
+        super(snake);
         this.name = name;
+        this.image = 'strange_bug';
     }
 
 }
 
 export class Strange_Bug extends Food
 {
-    constructor(settings, snake, name)
+    constructor(snake)
     {
-        super(name);
+        super(snake);
         this.name = name;
+        this.image = 'syntax_bug';
     }
 
 }
 
 export class Pokemon extends Food
 {
-    constructor(settings, snake, name)
+    constructor(snake)
     {
-        super(name);
+        super(snake);
         this.name = name;
+        this.image = 'pokemon';
     }
 
 }
