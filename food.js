@@ -14,6 +14,7 @@ export class Food
     {
         if (snake.onSnake(this.position))
         {
+            new Audio('/chrupanie.mp3').play()
             snake.expandSnake(this.SNAKE_ELEMENTS_TO_ADD)
             this.position = this.getRandomFoodPosition(snake)
         }

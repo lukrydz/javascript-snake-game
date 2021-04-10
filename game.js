@@ -1,3 +1,5 @@
+new Audio('/muza.mp3').play()
+
 import { Snake, Python, Anakonda, Cobra, roundScore } from './snake.js'
 import { Food, Syntax_Bug, Strange_Bug, Pokemon } from './food.js'
 import { outsideGrid } from './grid.js';
@@ -16,6 +18,11 @@ const player = new Player();
 const settings = new Settings();
 const snake = new Snake(settings);
 const food = new Food(settings, snake);
+
+
+
+
+
 
 
 
@@ -53,6 +60,11 @@ function getViper() {
     hero = document.getElementById("viper").id
 }
 
+// document.querySelector('#containergameboard > #statusbar > #musiconof').addEventListener('click', musicOff)
+// function musicOff() {
+//     new Audio.stop()
+// }
+
 
 document.querySelector('#name_page > #buttons4 > #choice').addEventListener('click', myName)
 function myName() {
@@ -65,12 +77,19 @@ function initGame(currentTime)
     {
         storeScore(player.name, roundScore)
         
-
-        if (confirm('You lost. Press ok to restart.'))
-            
-        {   
+        new Audio('/gong.mp3').play()
+        document.getElementById('gameover').id = 'gameover2';
+        document.getElementById('statusbar').innerHTML = '';
+        document.getElementById('buttons1Hidden').id = 'buttons1';
+        document.getElementById('choice1Hidden').id = 'choice1';
+        document.getElementById('gameboard2').style.opacity = 0.5;
+        document.querySelector('#containergameboard2 > #gameover2 > #zmienna1').innerHTML = `Good job </br></br> ${player.name} </br></br></br></br> Your score is: </br></br> ${roundScore}`
+        document.querySelector('#containergameboard2 > #gameover2 > #buttons1 > #choice1 ').addEventListener('click', startAgain )
+        function startAgain () {
             window.location.reload(true);
         }
+        //     window.location.reload(true);
+        // }
     }
 
     // Your game can start here, but define separate functions, don't write everything in here :)
@@ -82,7 +101,6 @@ function initGame(currentTime)
     if (secondsSinceLastRender < 1 / settings.SNAKESPEED) return
     
     lastRenderTime = currentTime
-
     update();
     draw();
 }
@@ -94,7 +112,6 @@ function update()
 {
     // move snake to new coordinates
     snake.update()
-    
     // updateSnake()
     checkDeath()
     food.update(snake)
@@ -112,7 +129,9 @@ function draw()
   
 function checkDeath() 
 {
+
     gameOver = outsideGrid(snake.SnakeHead || snake.snakeIntersection())
+
 }
 
 function showCurrentScore(){
@@ -155,4 +174,3 @@ function hallOfFame(){
     document.querySelector('#halloffame2 > #buttons3 > #choice').innerHTML = `3. ${scoreArray[2]}`
 }
 
-// document.querySelector('.snake').style.backgroundImage = 'url("jajko2.png")';
