@@ -7,17 +7,17 @@
     animation: transitionOut 2s;
 }
 
-#kafelki1 {
-    animation: transitionKafelki1 2.5s;
+#buttons1 {
+    animation: transitionButton1 2.5s;
 }
-#kafelki2 {
-    animation: transitionKafelki2 2s;
+#buttons2 {
+    animation: transitionButton2 2s;
 }
-#kafelki3 {
-    animation: transitionKafelki3 1.5s;
+#buttons3 {
+    animation: transitionButton3 1.5s;
 }
-#kafelki4 {
-    animation: transitionKafelki4 1s;
+#buttons4 {
+    animation: transitionButton4 1s;
 }
 
 #mainmenu {
@@ -54,7 +54,7 @@
     }
 }
 
-@keyframes transitionKafelki1 {
+@keyframes transitionButton1 {
     from {
         opacity: 0;
         transform: translateY(-100px);
@@ -65,7 +65,7 @@
     }
 }
 
-@keyframes transitionKafelki2 {
+@keyframes transitionButton2 {
     from {
         opacity: 0;
         transform: translateY(-200px);
@@ -76,7 +76,7 @@
     }
 }
 
-@keyframes transitionKafelki3 {
+@keyframes transitionButton3 {
     from {
         opacity: 0;
         transform: translateY(-300px);
@@ -87,7 +87,7 @@
     }
 }
 
-@keyframes transitionKafelki4 {
+@keyframes transitionButton4 {
     from {
         opacity: 0;
         transform: translateY(-400px);

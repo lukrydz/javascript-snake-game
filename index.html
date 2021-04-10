@@ -11,58 +11,99 @@
     <link rel="stylesheet" href="style-transition.css">
     <!-- defer makes script load after html -->
     <script src="game.js" defer type="module"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+
+    
 
     
     <div id="container">
         <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
         <div id="mainmenu"><b>Main menu</b></div>
     
-        <div id="kafelki1" style="margin-top: 100px;">
-            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('levelofdifficulty').id ='levelofdifficulty2'; 
-            document.getElementById('container').id = 'container2'">Play the game</div></div>
+        <div id="buttons1" style="margin-top: 100px;"> 
+            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('name_page').id ='name_page2'; 
+            document.getElementById('container').id = 'container2'">Play the game</div></div>    
 
-        <div id="kafelki2">
+        <div id="buttons2">
             <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('credits').id ='credits2'; 
-            document.getElementById('container').id = 'container2'"<div class="choice">Credits</div></div>
+            document.getElementById('container').id = 'container2'">Credits</div></div>
     
-        <div id="kafelki3">
+        <div id="buttons3">
             <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('halloffame').id ='halloffame2'; 
-            document.getElementById('container').id = 'container2'"<div id="choice">Hall of fame</div></div>
+            document.getElementById('container').id = 'container2'">Hall of fame</div></div>
     
-        <div id="kafelki4">
+        <div id="buttons4">
             <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('options').id ='options2';
-            document.getElementById('container').id = 'container2'"<div id="choice">Options</div></div>
+            document.getElementById('container').id = 'container2'">Options</div></div>
 
         <div id="footer" style="font-size: 15px;">copyright © All rights reserved</div></div>
     
+
+    <div id="name_page">
+        <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
+        <div id="mainmenu"><b>Choose your nickname</b></div>
+
+        <div id="buttons4"><label for="name_input"></label>
+            <input type="text" id="name_input" name="nickname">
+        </div>
+        <div id="buttons4" for="submit_button">
+            <div id="choice" type='button' style= 'cursor:pointer' onclick = 
+            'document.getElementById("levelofdifficulty").id ="levelofdifficulty2"; 
+            document.getElementById("name_page2").id = "name_page";'>Submit</div></div>
+        <div id="footer" style="font-size: 15px;">copyright © All rights reserved</div>
+    </div>   
+
+
+
     <div id="levelofdifficulty">
         <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
-        <div style="font-size: 40px; color: #00154F; width: 600px; margin-left: auto; margin-right: auto; text-align:center; margin-top: 100px;">
-            <b>Choose your level of difficulty</b></div>
-        <div id="kafelki1" style="margin-top: 100px">
-            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('gameboard').id ='gameboard2';
-            document.getElementById('levelofdifficulty2').id = 'levelofdifficulty'; document.getElementById('containergameboard').id = 'containergameboard2'"
+        <div id="getnamefromjs"></div>
+        <div id="buttons1" style="margin-top: 100px">
+            <div id="choice1" style= 'cursor:pointer' onclick=";
+            document.getElementById('levelofdifficulty2').id = 'levelofdifficulty'; document.getElementById('herotochoose').id = 'herotochoose2'"
             >Easy</div></div>
-        <div id="kafelki2" style="margin-top: 25px">
-            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('gameboard').id ='gameboard2';
-            document.getElementById('levelofdifficulty2').id = 'levelofdifficulty'; document.getElementById('containergameboard').id = 'containergameboard2'"
+        <div id="buttons2" style="margin-top: 25px">
+            <div id="choice2" style= 'cursor:pointer' onclick=";
+            document.getElementById('levelofdifficulty2').id = 'levelofdifficulty'; document.getElementById('herotochoose').id = 'herotochoose2'"
             >Hard</div></div>
-        <div id="kafelki3" style="margin-top: 100px">
+        <div id="buttons3" style="margin-top: 100px">
             <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('container2').id ='container';
             document.getElementById('levelofdifficulty2').id = 'levelofdifficulty'"
             >Back to main menu byku</div></div>
             <div id="footer" style="font-size: 15px">copyright © All rights reserved</div>
     </div>
 
+    <div id="herotochoose">
+        <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
+        <div id="getnamefromjs"></div>
+        <div id="herosscreen">
+        <div id="cobra" style= 'cursor:pointer' onclick="document.getElementById('gameboard').id ='gameboard2';
+        document.getElementById('herotochoose2').id = 'herotochoose'; document.getElementById('containergameboard').id = 'containergameboard2'"
+        ></div>
+        <div id="python" style= 'cursor:pointer' onclick="document.getElementById('gameboard').id ='gameboard2';
+        document.getElementById('herotochoose2').id = 'herotochoose'; document.getElementById('containergameboard').id = 'containergameboard2'"
+        ></div>
+        <div id="viper" style= 'cursor:pointer' onclick="document.getElementById('gameboard').id ='gameboard2';
+        document.getElementById('herotochoose2').id = 'herotochoose'; document.getElementById('containergameboard').id = 'containergameboard2'"
+        ></div>
+        </div>
+        <div id="buttons3" style="margin-top: 400px">
+            <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('container2').id ='container';
+            document.getElementById('herotochoose2').id = 'herotochoose'"
+            >Back to main menu byku</div></div>
+            <div id="footer" style="font-size: 15px">copyright © All rights reserved</div>
+    </div>
+    
+
     <div id="credits">
         <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
         <div style="font-size: 40px; color: #00154F; width: 245px; margin-left: auto; margin-right: auto; text-align:center; margin-top: 100px;"><b>Credits</b></div>
-        <div id="kafelki1" ><div id="choice">Adas</div></div>
-        <div id="kafelki2" ><div id="choice">Lukaszek</div></div>
-        <div id="kafelki3" ><div id="choice">Beniaminek</div></div>
-        <div id="kafelki4" style="margin-top: 100px">
+        <div id="buttons1" ><div id="choice">Adas</div></div>
+        <div id="buttons2" ><div id="choice">Lukaszek</div></div>
+        <div id="buttons3" ><div id="choice">Beniaminek</div></div>
+        <div id="buttons4" style="margin-top: 100px">
             <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('container2').id ='container';
             document.getElementById('credits2').id = 'credits'"
             >Back to main menu byku</div></div>
@@ -72,10 +113,10 @@
     <div id="halloffame">
         <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
         <div style="font-size: 40px; color: #00154F; width: 245px; margin-left: auto; margin-right: auto; text-align:center; margin-top: 100px;"><b>Hall of fame</b></div>
-        <div id="kafelki1" ><div id="choice">1.the best</div></div>
-        <div id="kafelki2" ><div id="choice">2.good</div></div>
-        <div id="kafelki3" ><div id="choice">3.worst</div></div>
-        <div id="kafelki4" style="margin-top: 100px">
+        <div id="buttons1" ><div id="choice">1.the best</div></div>
+        <div id="buttons2" ><div id="choice">2.good</div></div>
+        <div id="buttons3" ><div id="choice">3.worst</div></div>
+        <div id="buttons4" style="margin-top: 100px">
             <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('container2').id ='container';
             document.getElementById('halloffame2').id = 'halloffame'"
             >Back to main menu byku</div></div>
@@ -84,8 +125,8 @@
     <div id="options">
         <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
         <div style="font-size: 40px; color: #00154F; width: 245px; margin-left: auto; margin-right: auto; text-align:center; margin-top: 100px;"><b>Options</b></div>
-        <div id="kafelki1"><div id="choice">In progress</div></div>
-        <div id="kafelki2" style="margin-top: 100px">
+        <div id="buttons1"><div id="choice">In progress</div></div>
+        <div id="buttons2" style="margin-top: 100px">
             <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('container2').id ='container';
             document.getElementById('options2').id = 'options'"
             >Back to main menu byku</div></div>
@@ -95,8 +136,8 @@
         <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
         <div id="gameboard"></div>
         <div id="statusbar">
-            <div id=score>Score:</div>
-            <div id=musiconof>Music ON/OFF</div>
+            <div id="score">Score:</div>
+            <div id="musiconoff">Music ON/OFF</div>
         </div>
         <div id="footer" style="font-size: 15px">copyright © All rights reserved</div></div>
 
