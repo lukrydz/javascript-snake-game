@@ -5,12 +5,13 @@ import { Settings } from './settings.js';
 import { Player } from './player.js';
 import { storeScore, getScores } from './cookiehiscore.js';
 
+
 let lastRenderTime = 0
 let gameOver = false
 const gameBoard = document.getElementById('gameboard')
 const player = new Player();
 const settings = new Settings();
-const snake = new Cobra(settings, "Tadeusz");
+const snake = new Python(settings, "Tadeusz");
 const food = new Food(settings, snake);
 
 
@@ -53,12 +54,13 @@ function update()
     
     // updateSnake()
     checkDeath()
-    if (snake.onSnake(food.position))
-    {   
-
-        // const food = new Food(settings, snake);
-        food.update(snake)
-    }
+    // if (snake.onSnake(food.position))
+    // {   
+    //     snake.expandSnake()
+    //     food.kill()
+    //     food = new Food(settings, snake);
+    food.update(snake)
+    // }
 }
 
 function draw()

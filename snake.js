@@ -102,6 +102,7 @@ export class Python extends Snake
         this.type = "Python"
         this.image = "python"
         this.SNAKESPEED = 2
+        this.SNAKE_ELEMENTS_TO_ADD = 3
     }
 
 }
