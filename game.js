@@ -16,6 +16,7 @@ var snake = new Snake("Tadeusz");
 var food = new Food(snake);
 
 let music = new Audio('./John Wick.mp3');
+let musicplaying = true;
 
 function playMusic(){
 music.play()
@@ -57,10 +58,17 @@ function getViper() {
     snake = new Viper("Tadeusz");
 }
 
-// document.querySelector('#containergameboard > #statusbar > #musiconof').addEventListener('click', musicOff)
-// function musicOff() {
-//     new Audio.stop()
-// }
+function musicOff() {
+    console.log('got here');
+    if (musicplaying) {
+        music.pause()
+        music.currentTime = 0;
+        musicplaying = false
+    } else {
+        music.play()
+        musicplaying = true
+    }
+}
 
 
 
@@ -87,6 +95,7 @@ function initGame(currentTime)
         document.getElementById('gameboard2').style.opacity = 0.5;
         document.querySelector('#containergameboard2 > #gameover2 > #zmienna1').innerHTML = `Good job </br></br> ${player.name} </br></br></br></br> Your score is: </br></br> ${roundScore}`
         document.querySelector('#containergameboard2 > #gameover2 > #buttons1 > #choice1 ').addEventListener('click', startAgain )
+        
         function startAgain () {
             window.location.reload(true);
         }
@@ -131,6 +140,8 @@ function update()
             food = new Pokemon(snake); 
     }
 }
+
+document.querySelector('#musiconoff').addEventListener('click', musicOff);
 
 function draw()
 {
