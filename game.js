@@ -19,11 +19,6 @@ var food = new Food(snake);
 
 
 
-
-
-
-
-
 document.querySelector('#name_page > #buttons4 > #choice').addEventListener('click', getName)
 function getName() {
     player.update_player_data(document.getElementById("name_input").value)
@@ -122,7 +117,6 @@ function update()
         food.kill()
         snake.expandSnake(food.power)
         randomNumber = getRandomInt(1, 4);
-        // randomNumber = 3;
         console.log(randomNumber)
         if (randomNumber == 1)
             food = new Syntax_Bug(snake);
