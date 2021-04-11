@@ -10,7 +10,7 @@ export class Snake
         this.snakeBody = [ { x: 8, y: 8 } ]
         this.newSnakeSegments = 0
         this.SnakeHead = this.snakeBody[0]
-        this.SNAKE_ELEMENTS_TO_ADD = 1
+        this.additiona_damage = 0
         this.image = 'snake'
         this.SNAKESPEED = 2
         this.name = name;
@@ -51,9 +51,9 @@ export class Snake
     }
 
     
-    expandSnake()
+    expandSnake(food_power)
     {
-        this.newSnakeSegments += this.SNAKE_ELEMENTS_TO_ADD
+        this.newSnakeSegments += this.additiona_damage + food_power
     }
     
 
@@ -103,7 +103,7 @@ export class Python extends Snake
         super(name);
         this.type = "Python"
         this.image = "python"
-        this.SNAKE_ELEMENTS_TO_ADD = 3
+        this.additiona_damage = 3
     }
 }
 
