@@ -4,7 +4,8 @@ import { outsideGrid } from './grid.js';
 import { Player } from './player.js';
 import { storeScore, getScores } from './cookiehiscore.js';
 
-new Audio('/John Wick.mp3').play()
+let music = new Audio('./John Wick.mp3');
+music.play()
 
 let lastRenderTime = 0
 let gameOver = false
