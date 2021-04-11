@@ -120,9 +120,8 @@ function update()
     {   
         new Audio('/chrupanie.mp3').play()
         food.kill()
-        snake.expandSnake()
-        randomNumber = getRandomInt(1, 3);
-        randomNumber = 3;
+        snake.expandSnake(food.power)
+        randomNumber = getRandomInt(1, 4);
         console.log(randomNumber)
         if (randomNumber == 1)
             food = new Syntax_Bug(snake);

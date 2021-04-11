@@ -9,6 +9,7 @@ export class Food
         this.getRandomFoodPosition(snake);
         this.image = 'food'
         this.element = document.createElement('div')
+        this.power = 1
     }
 
 
@@ -55,6 +56,7 @@ export class Syntax_Bug extends Food
         super(snake);
         this.name = name;
         this.image = 'strange_bug';
+        this.power = 2;
     }
 
 }
@@ -66,6 +68,7 @@ export class Strange_Bug extends Food
         super(snake);
         this.name = name;
         this.image = 'syntax_bug';
+        this.power = 2;
     }
 
 }
@@ -77,6 +80,7 @@ export class Pokemon extends Food
         super(snake);
         this.name = name;
         this.image = 'pokemon';
+        this.power = -1;
     }
 
 }
