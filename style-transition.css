@@ -32,6 +32,23 @@
     animation: musiconof 2s;
 }
 
+/* #gameboard2 {
+    opacity: 1;
+}
+
+#x {
+    animation: gameboard2 2s;
+}
+
+@keyframes x {
+    to {
+        opacity: 0.3;
+    }
+} */
+
+
+
+
 @keyframes transitionIn {
     from {
         opacity: 0.2;

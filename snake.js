@@ -7,7 +7,7 @@ export class Snake
     constructor(name)
     {
         // array of x, y positions
-        this.snakeBody = [ { x: 10, y: 11 } ]
+        this.snakeBody = [ { x: 8, y: 8 } ]
         this.newSnakeSegments = 0
         this.SnakeHead = this.snakeBody[0]
         this.SNAKE_ELEMENTS_TO_ADD = 1
@@ -50,11 +50,12 @@ export class Snake
         })
     }
 
-
+    
     expandSnake()
     {
         this.newSnakeSegments += this.SNAKE_ELEMENTS_TO_ADD
     }
+    
 
 
     onSnake(position, { ignoreHead = false } = {})

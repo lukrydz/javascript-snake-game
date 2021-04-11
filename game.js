@@ -4,6 +4,8 @@ import { outsideGrid } from './grid.js';
 import { Player } from './player.js';
 import { storeScore, getScores } from './cookiehiscore.js';
 
+new Audio('/John Wick.mp3').play()
+
 let lastRenderTime = 0
 let gameOver = false
 ///tutaj masz level wybrany przez gracza
@@ -14,6 +16,11 @@ const gameBoard = document.getElementById('gameboard')
 const player = new Player();
 var snake = new Snake("Tadeusz");
 var food = new Food(snake);
+
+
+
+
+
 
 
 
@@ -50,6 +57,11 @@ function getViper() {
     snake = new Viper("Tadeusz");
 }
 
+// document.querySelector('#containergameboard > #statusbar > #musiconof').addEventListener('click', musicOff)
+// function musicOff() {
+//     new Audio.stop()
+// }
+
 
 
 
@@ -60,17 +72,26 @@ function myName() {
 
 }
 function initGame(currentTime)
-{
+{   
+    
     if (gameOver)
     {
+
         storeScore(player.name, roundScore)
         
-
-        if (confirm('You lost. Press ok to restart.'))
-            
-        {   
+        new Audio('/gong.mp3').play()
+        document.getElementById('gameover').id = 'gameover2';
+        document.getElementById('statusbar').innerHTML = '';
+        document.getElementById('buttons1Hidden').id = 'buttons1';
+        document.getElementById('choice1Hidden').id = 'choice1';
+        document.getElementById('gameboard2').style.opacity = 0.5;
+        document.querySelector('#containergameboard2 > #gameover2 > #zmienna1').innerHTML = `Good job </br></br> ${player.name} </br></br></br></br> Your score is: </br></br> ${roundScore}`
+        document.querySelector('#containergameboard2 > #gameover2 > #buttons1 > #choice1 ').addEventListener('click', startAgain )
+        function startAgain () {
             window.location.reload(true);
         }
+        //     window.location.reload(true);
+        // }
     }
 
     // Your game can start here, but define separate functions, don't write everything in here :)
@@ -82,7 +103,6 @@ function initGame(currentTime)
     if (secondsSinceLastRender < 1 / snake.SNAKESPEED) return
     
     lastRenderTime = currentTime
-
     update();
     draw();
 }
@@ -94,11 +114,11 @@ function update()
 {
     // move snake to new coordinates
     snake.update()
-    
     // updateSnake()
     checkDeath()
     if (snake.onSnake(food.position))
     {   
+        new Audio('/chrupanie.mp3').play()
         food.kill()
         snake.expandSnake()
         randomNumber = getRandomInt(1, 3);
@@ -125,12 +145,13 @@ function draw()
   
 function checkDeath() 
 {
+
     gameOver = outsideGrid(snake.SnakeHead || snake.snakeIntersection())
+
 }
 
 function showCurrentScore(){
-    document.querySelector("#score").innerHTML = `Score: ${roundScore}`
-    // document.querySelector('.snake').style.backgroundImage = 'url("snake.png")';    
+    document.querySelector("#score").innerHTML = `Score: ${roundScore}`  
 }
 
 document.querySelector('#container > #buttons3 > #choice').addEventListener('click', hallOfFame)

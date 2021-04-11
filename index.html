@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <title>Javascript Game</title>
     <meta charset="UTF-8">
@@ -14,9 +14,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-
-    
-
     
     <div id="container">
         <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
@@ -24,7 +21,7 @@
     
         <div id="buttons1" style="margin-top: 100px;"> 
             <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('name_page').id ='name_page2'; 
-            document.getElementById('container').id = 'container2'">Play the game</div></div>    
+            document.getElementById('container').id= 'container2'">Play the game</div></div>    
 
         <div id="buttons2">
             <div id="choice" style= 'cursor:pointer' onclick="document.getElementById('credits').id ='credits2'; 
@@ -135,7 +132,12 @@
     
     <div id="containergameboard">   
         <div id="header" style="font-size: 40px;"><img src="snakeee.png"></div>
-        <div id="gameboard"></div>
+        <div id="gameboard" style='opacity:1'></div>
+        <div id="gameover">
+            <div id="zmienna1"></div>
+            <div id="buttons1Hidden" style="position: absolute; bottom: 0;width: 100%; text-align: center; color: #F4AF1B;">
+                <div id="choice1Hidden" style= 'cursor:pointer; color: #F4AF1B;'><u>Play again dude</u></div></div>
+        </div>
         <div id="statusbar">
             <div id="score">Score:</div>
             <div id="musiconoff">Music ON/OFF</div>
