@@ -4,9 +4,6 @@ import { outsideGrid } from './grid.js';
 import { Player } from './player.js';
 import { storeScore, getScores } from './cookiehiscore.js';
 
-let music = new Audio('./John Wick.mp3');
-music.play()
-
 let lastRenderTime = 0
 let gameOver = false
 ///tutaj masz level wybrany przez gracza
@@ -18,6 +15,13 @@ const player = new Player();
 var snake = new Snake("Tadeusz");
 var food = new Food(snake);
 
+let music = new Audio('./John Wick.mp3');
+
+function playMusic(){
+music.play()
+}
+
+document.querySelector('#container > #buttons1 > #choice').addEventListener('click', playMusic)
 
 
 document.querySelector('#name_page > #buttons4 > #choice').addEventListener('click', getName)
