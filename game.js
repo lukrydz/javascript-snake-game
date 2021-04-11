@@ -79,7 +79,7 @@ function initGame(currentTime)
 
         storeScore(player.name, roundScore)
         
-        new Audio('/gong.mp3').play()
+        new Audio('./gong.mp3').play()
         document.getElementById('gameover').id = 'gameover2';
         document.getElementById('statusbar').innerHTML = '';
         document.getElementById('buttons1Hidden').id = 'buttons1';
@@ -118,7 +118,7 @@ function update()
     checkDeath()
     if (snake.onSnake(food.position))
     {   
-        new Audio('/chrupanie.mp3').play()
+        new Audio('./chrupanie.mp3').play()
         food.kill()
         snake.expandSnake(food.power)
         randomNumber = getRandomInt(1, 4);
